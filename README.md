@@ -9,7 +9,7 @@ The API was re-factored to 4 Components
 - FlighApp.Business: the Business logic of the application
 - FlighApp.Web : Exposes application services through rest API
 
-We used dependency injection for the communication between components
+We used dependency injection for the communication between components.
 In the test project we developed a mock for each service to be tested independently 
 ### Model class diagram
 ![alt text](Model-Diagram.PNG)
@@ -23,11 +23,11 @@ In the test project we developed a mock for each service to be tested independen
 ```
 
 ### Installing
-
+```
 Clone the repo 
 Open  solution FilighApp/FlighApp.sln by visual studio
 From package manager console select FlighApp.Dal project and run  "update-database"
-
+```
 
 For the front application run :
 ```
