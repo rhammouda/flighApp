@@ -18,6 +18,7 @@ In the test project we developed a mock for each service to be tested independen
 
 ```
 - Visual studio and .net core SDK
+- SQL Server 
 - nodeJs 8+
 - Angular CLI v7
 ```
