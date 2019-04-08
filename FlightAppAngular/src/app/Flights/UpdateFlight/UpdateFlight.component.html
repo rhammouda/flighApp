@@ -1,0 +1,56 @@
+<form [formGroup]="updateFlightForm" novalidate (ngSubmit)="save()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>New Flight</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+              <mat-form-field  class="full-width">
+                  <input type="text" placeholder="From" aria-label="From" matInput formControlName="departure" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let depature of filteredDepartures | async" [value]="depature">
+                      {{depature.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-error *ngIf="updateFlightForm.controls['departure'].hasError('required')">
+                      Departure  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+          </div>
+          <div class="col">
+              <mat-form-field  class="full-width">
+                  <input type="text" placeholder="To" aria-label="To" matInput formControlName="destination" [matAutocomplete]="autoComleteDestination">
+                  <mat-autocomplete #autoComleteDestination="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let destination of filteredDestinations | async" [value]="destination">
+                      {{destination.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-error *ngIf="updateFlightForm.controls['destination'].hasError('required')">
+                      Destination is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <mat-form-field  class="full-width">
+                  <input type="text" placeholder="Airplane" aria-label="Airplane" matInput formControlName="airplane" [matAutocomplete]="autoCompleteAirplane">
+                  <mat-autocomplete #autoCompleteAirplane="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let airplane of filteredAirplanes | async" [value]="airplane">
+                      {{airplane.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-error *ngIf="updateFlightForm.controls['airplane'].hasError('required')">
+                      Airplane is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

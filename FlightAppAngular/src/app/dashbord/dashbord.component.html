@@ -1,0 +1,53 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <!-- Flights -->
+    <mat-grid-tile [colspan]="2" >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+             Flights
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <app-flights></app-flights>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Airports -->
+    <mat-grid-tile [colspan]="2" >
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Airports
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <app-airports></app-airports>
+            </div>
+          </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+    <!-- Airplanes -->
+    <mat-grid-tile [colspan]="2" >
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+                Airplanes
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <app-airplanes></app-airplanes>
+            </div>
+          </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

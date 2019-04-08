@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+    <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+  
+      <!-- Departure Column -->
+      <ng-container matColumnDef="departure">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Departure</th>
+        <td mat-cell *matCellDef="let row">{{row.departure}}</td>
+      </ng-container>
+
+   <!-- Destination Column -->
+   <ng-container matColumnDef="destination">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>destination</th>
+      <td mat-cell *matCellDef="let row">{{row.destination}}</td>
+    </ng-container>
+
+    <!-- Airplane Column -->
+   <ng-container matColumnDef="airplane">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Airplane</th>
+      <td mat-cell *matCellDef="let row">{{row.airplane}}</td>
+    </ng-container>
+     <!-- Airplane Column -->
+   <ng-container matColumnDef="fuelNeededInLiter">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel needed</th>
+      <td mat-cell *matCellDef="let row">{{row.fuelNeededInLiter}} L</td>
+    </ng-container>
+
+    <ng-container matColumnDef="flightDurationInSecond">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Flight duration</th>
+        <td mat-cell *matCellDef="let row">{{row.flightDurationInSecond/3600 |number:'1.0-0'}} H {{(row.flightDurationInSecond%3600)/60 | number:'1.0-0'}} mn</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>action</th>
+        <td mat-cell *matCellDef="let row"><a routerLink="/flights/update/{{row.id}}"><mat-icon>update</mat-icon></a></td>
+    </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #paginator
+        [length]="dataSource.data?.length"
+        [pageIndex]="0"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25, 50]">
+    </mat-paginator>
+  </div>
+  
+  <div align="end" >
+      <button mat-raised-button color="primary" routerLink="/flights/add">Add</button>
+  </div>

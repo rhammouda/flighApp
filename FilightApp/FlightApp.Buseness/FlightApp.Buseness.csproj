@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>FlightApp.Buseness</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlightApp.DAL\FlightApp.DAL.csproj" />
+    <ProjectReference Include="..\FlightApp.Model\FlightApp.Model.csproj" />
+  </ItemGroup>
+
+</Project>
